@@ -1,0 +1,120 @@
+/* ======= TABLE RESPONSIVENESS FOR LAPTOPS, TABLETS, MOBILES ======= */
+/* Place at the end of your main CSS/SCSS file */
+
+/* Common table styles */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0 1.5rem 0;
+  background: var(--card-bg, #fff);
+  border-radius: var(--radius, 0.75rem);
+  overflow: hidden;
+  box-shadow: var(--shadow, 0 2px 8px rgba(30,42,60,.08));
+  font-size: 1rem;
+  th, td {
+    padding: 1rem 1.2rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border, #e6e9f0);
+  }
+  th {
+    background: #f0f4fa;
+    color: var(--primary-color, #2452ff);
+    font-weight: 700;
+    font-size: 1.05em;
+    letter-spacing: .03em;
+  }
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+/* Responsive for laptops (≤1200px) */
+@media (max-width: 1200px) {
+  table, thead, tbody, tr, th, td {
+    font-size: 0.98rem;
+  }
+  table {
+    margin: 1.2rem 0 1rem 0;
+  }
+}
+
+/* Responsive for tablets (≤900px) */
+@media (max-width: 900px) {
+  table, thead, tbody, tr, th, td {
+    font-size: 0.93rem;
+  }
+  table th, table td {
+    padding: 0.8rem 0.7rem;
+  }
+}
+
+/* Fully responsive for mobiles (≤600px) */
+@media (max-width: 600px) {
+  table, thead, tbody, tr, th, td {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+  }
+  table {
+    border-radius: 0.7rem;
+    box-shadow: none;
+    margin: 1rem 0;
+    font-size: 0.95rem;
+    background: var(--card-bg, #fff);
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-bottom: 1.3rem;
+    border-radius: 0.6rem;
+    box-shadow: 0 2px 8px rgba(30,42,60,.06);
+    background: var(--card-bg, #fff);
+    padding: 0.3rem 0.2rem;
+    display: block;
+  }
+  td {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 0.82rem 0.9rem;
+    border: none;
+    border-bottom: 1px solid var(--border, #e6e9f0);
+    position: relative;
+    font-size: 0.98em;
+    /* Add label before value */
+    &::before {
+      content: attr(data-label);
+      flex-basis: 40%;
+      font-weight: 600;
+      color: var(--primary-color, #2452ff);
+      margin-right: 0.7em;
+      font-size: 0.97em;
+      text-align: left;
+      min-width: 100px;
+      display: inline-block;
+    }
+  }
+  tr:last-child td { border-bottom: none; }
+}
+
+/* Optional: Scrollable table wrapper (for wide tables on mobile/tablet) */
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Usage: 
+Place your table inside <div class="table-responsive">...</div>
+For best mobile accessibility, each <td> needs data-label attribute with the column header text.
+Example:
+<td data-label="Email">hello@example.com</td>
+You can set this with JS or server-side render.
+*/
+
+/* Accessibility: focus for table cells */
+td:focus-visible, th:focus-visible {
+  outline: 2px solid var(--primary-color, #2452ff);
+  outline-offset: 2px;
+}
