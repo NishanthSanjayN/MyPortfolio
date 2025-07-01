@@ -2149,4 +2149,339 @@ td:focus-visible, th:focus-visible {
   background: var(--skills-box-bg);
 }
 
-/* [Keep your other CSS unchanged below as needed] */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap");
+
+/* ====== COLOR VARIABLES ====== */
+:root {
+  --header-height: 3.5rem;
+  --font-semi: 600;
+  --primary: #2452ff;
+  --primary-dark: #1837a1;
+  --background: #f6f8fa;
+  --card-bg: #fff;
+  --skills-box-bg: #f5f8ff; /* Unified skills and card background */
+  --text-main: #23272f;
+  --text-secondary: #5a6270;
+  --accent: #2dc8e0;
+  --border-radius: 12px;
+  --box-shadow: 0 4px 24px rgba(14, 36, 49, 0.07);
+  --border: #e6e9f0;
+  --transition: .2s cubic-bezier(.4,0,.2,1);
+  --max-width: 1100px;
+}
+
+/* ====== UNIVERSAL BOX BACKGROUND (for home, about, education, projects, etc.) ====== */
+.home__wrapper,
+.home__img-container,
+.about__img img,
+.about__container,
+.education__item,
+.achievements__card,
+.skills__category,
+.softskills__full-row,
+.interests__item,
+.work__img,
+.contact__form {
+  background: var(--skills-box-bg) !important;
+}
+
+/* ===== HOME SECTION (with larger passport photo) ===== */
+.home {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 80vh;
+  gap: 3.5rem;
+  padding-top: calc(var(--header-height) + 2rem);
+  background: var(--background);
+}
+.home__img-container {
+  flex: 0 0 170px;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  min-width: 170px;
+  max-width: 170px;
+  background: var(--skills-box-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 1.7rem 1.2rem;
+}
+.home__blob-img {
+  width: 150px;
+  height: 200px;
+  border-radius: 14px;
+  object-fit: cover;
+  box-shadow: 0 6px 32px rgba(36,82,255,0.10);
+  border: 5px solid #fff;
+  background: #fff;
+  margin: 0 auto;
+}
+.home__wrapper {
+  flex: 1;
+  min-width: 0;
+  max-width: 680px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: var(--skills-box-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem 2.2rem;
+}
+.home__data {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.home__title {
+  font-size: 2.2rem;
+  color: var(--primary-dark, #1837a1);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 0.2em;
+}
+.home__title-color {
+  color: var(--primary, #2452ff);
+  font-weight: 800;
+}
+.home__headline {
+  font-size: 1.13rem;
+  font-weight: 600;
+  color: var(--primary-dark, #1837a1);
+  margin-bottom: 0.1em;
+  letter-spacing: .4px;
+}
+.home__description {
+  color: var(--text-secondary, #5a6270);
+  font-size: 1.06rem;
+  line-height: 1.6;
+  margin-bottom: 0.5em;
+  font-weight: 400;
+}
+.button {
+  display: inline-block;
+  background: linear-gradient(90deg, var(--primary, #2452ff) 75%, var(--accent, #2dc8e0) 100%);
+  color: #fff;
+  padding: 0.85rem 2.7rem;
+  font-weight: 700;
+  border-radius: 0.6rem;
+  font-size: 1.08rem;
+  box-shadow: 0px 8px 32px rgba(44, 82, 180, .08);
+  border: none;
+  cursor: pointer;
+  letter-spacing: .4px;
+  transition: background var(--transition), box-shadow var(--transition), transform var(--transition), color var(--transition), border var(--transition);
+  margin-bottom: 1rem;
+}
+.button:hover {
+  background: linear-gradient(90deg, var(--primary-dark, #1837a1) 65%, var(--accent, #2dc8e0) 100%);
+  transform: translateY(-2px) scale(1.02);
+  box-shadow: 0 12px 40px rgba(36,82,255,0.1);
+}
+.home__social {
+  display: flex;
+  gap: 1.3rem;
+  align-items: center;
+  margin-top: 1.3rem;
+}
+.home__social-icon {
+  font-size: 1.8rem;
+  color: var(--primary-dark, #1837a1);
+  background: #e7f0ff;
+  border-radius: 50%;
+  padding: .6rem;
+  transition: background var(--transition), color var(--transition), transform var(--transition);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.home__social-icon:hover, .home__social-icon:focus {
+  background: var(--primary, #2452ff);
+  color: #fff;
+  transform: scale(1.09) translateY(-2px);
+}
+@media (max-width: 1100px) {
+  .home {
+    gap: 2.1rem;
+  }
+  .home__img-container {
+    flex-basis: 140px;
+    min-width: 140px;
+    max-width: 140px;
+    padding: 1.1rem 0.7rem;
+  }
+  .home__blob-img {
+    width: 110px;
+    height: 150px;
+  }
+}
+@media (max-width: 900px) {
+  .home {
+    flex-direction: column;
+    gap: 2rem;
+    min-height: 70vh;
+    padding-top: calc(var(--header-height) + 1rem);
+  }
+  .home__img-container {
+    min-width: 100px;
+    max-width: 100px;
+    margin-bottom: 1.2rem;
+    padding: 0.5rem 0.3rem;
+  }
+  .home__blob-img {
+    width: 80px;
+    height: 110px;
+  }
+  .home__wrapper {
+    max-width: 100%;
+    width: 100%;
+    padding: 1.2rem 0.6rem;
+  }
+  .home__title {
+    font-size: 1.21rem;
+  }
+  .home__headline {
+    font-size: 0.97rem;
+  }
+}
+@media (max-width: 600px) {
+  .home {
+    flex-direction: column;
+    gap: 1.2rem;
+    padding-top: calc(var(--header-height) + 0.7rem);
+    min-height: auto;
+  }
+  .home__img-container {
+    min-width: 60px;
+    max-width: 60px;
+    margin-bottom: 0.7rem;
+    padding: 0.2rem;
+  }
+  .home__blob-img {
+    width: 48px;
+    height: 65px;
+    border-width: 2px;
+  }
+  .home__wrapper,
+  .home__img-container {
+    min-width: 0;
+    max-width: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+/* ===== ABOUT SECTION (unified box color) ===== */
+.about__container {
+  background: var(--skills-box-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem 2.2rem;
+}
+@media (max-width: 900px) {
+  .about__container {
+    padding: 1.2rem 0.6rem;
+  }
+}
+@media (max-width: 600px) {
+  .about__container {
+    padding: 0.5rem;
+    box-shadow: none;
+  }
+}
+.about__img img {
+  background: var(--skills-box-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* ===== SKILLS SECTION (already unified) ===== */
+.skills__category {
+  background: var(--skills-box-bg);
+}
+
+/* ===== SOFT SKILLS FULL WIDTH BADGES (Professional & Larger) ===== */
+.softskills__full-row {
+  width: 100%;
+  margin-top: 2.5rem;
+  background: var(--skills-box-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.2rem 2.5rem 2rem 2.5rem;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  display: block;
+  font-size: 1.18rem;
+}
+.softskills__full-row .skills__category-title {
+  margin-bottom: 1.3rem;
+  color: var(--primary-dark);
+  font-size: 1.23rem;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+.softskills__badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.6rem 2.7rem;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  padding: 0.5rem 0 0 0;
+}
+.softskills__badges .skills__label {
+  background: #e7f0ff;
+  color: var(--primary-dark);
+  border-radius: 10px;
+  padding: 0.7em 2.3em;
+  font-size: 1.11em;
+  font-weight: 700;
+  margin: 0.25em 0;
+  box-shadow: 0 2px 10px rgba(36,82,255,0.10);
+  border: 1.5px solid #d2e2fa;
+  letter-spacing: .01em;
+  transition: background .18s, color .18s, box-shadow .18s;
+}
+.softskills__badges .skills__label:hover,
+.softskills__badges .skills__label:focus {
+  background: var(--primary-dark);
+  color: #fff;
+  box-shadow: 0 4px 18px rgba(36,82,255,0.14);
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  .softskills__full-row {
+    padding: 1.3rem 1.2rem 1.1rem 1.2rem;
+    font-size: 1.04rem;
+  }
+  .softskills__badges {
+    gap: 1rem 1.4rem;
+    padding: 0.2rem 0 0 0;
+  }
+  .softskills__badges .skills__label {
+    padding: 0.55em 1.3em;
+    font-size: 0.97em;
+  }
+}
+@media (max-width: 600px) {
+  .softskills__full-row {
+    padding: 0.7rem 0.3rem 0.7rem 0.3rem;
+    font-size: 0.97rem;
+    box-shadow: none;
+  }
+  .softskills__badges {
+    gap: 0.5rem 0.7rem;
+    flex-direction: column;
+  }
+  .softskills__badges .skills__label {
+    padding: 0.38em 0.8em;
+    font-size: 0.95em;
+  }
+}
+
+/* ===== REMAINDER OF YOUR CSS... ===== */
+/* [All your other section styles (about, education, projects, work, contact, footer, etc.) remain unchanged or as above.] */
