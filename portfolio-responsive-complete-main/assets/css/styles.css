@@ -2485,3 +2485,8 @@ td:focus-visible, th:focus-visible {
 
 /* ===== REMAINDER OF YOUR CSS... ===== */
 /* [All your other section styles (about, education, projects, work, contact, footer, etc.) remain unchanged or as above.] */
+.interests__item:active .interests__label,
+.interests__item:focus .interests__label,
+.interests__item:hover .interests__label {
+  color: blue;
+}
