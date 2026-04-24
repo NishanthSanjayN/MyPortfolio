@@ -109,7 +109,54 @@ tr:last-child td {
   }
   tr:last-child td { border-bottom: none; }
 }
+/*===== SKILLS SECTION =====*/
+.skills__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
 
+/* Card style */
+.skills__content {
+    background-color: #ffffff;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+/* Hover effect */
+.skills__content:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Subtitle */
+.skills__subtitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #4070f4; /* your theme color */
+    margin-bottom: 0.5rem;
+}
+
+/* Text */
+.skills__text {
+    font-size: 0.95rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Section spacing fix */
+.skills.section {
+    padding: 4rem 0;
+}
+/* Add subtle gradient background */
+.skills.section {
+    background: linear-gradient(to bottom, #f9f9f9, #ffffff);
+}
 /* Accessibility: focus for table cells */
 td:focus-visible, th:focus-visible {
   outline: 2px solid var(--primary, #2452ff);
